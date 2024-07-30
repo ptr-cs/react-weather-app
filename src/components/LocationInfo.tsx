@@ -19,10 +19,10 @@ function LocationInfo({ city, state, date, timestamp }: LocationInfoProps) {
           <FaCalendar size={18} className="me-2 weather-icon" />
           <span>{date}</span>
         </Col>
-        <Col xs="auto" className="text-left">
+        {/* <Col xs="auto" className="text-left">
           <FaClock size={18} className="me-2 weather-icon" />
           <span>{timestamp}</span>
-        </Col>
+        </Col> */}
       </Row>
     </Container>
   );

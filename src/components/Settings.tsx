@@ -1,15 +1,16 @@
-import { useState } from 'react';
 import { Container, Row, Form, FormControl, OverlayTrigger, Tooltip, Button } from 'react-bootstrap';
 import { FaInfoCircle } from 'react-icons/fa';
 import './Transition.scss';
 
-const Settings = () => {
-  const [isDemoMode, setIsDemoMode] = useState(false);
+interface SettingsViewProps {
+  apiKey: string;
+  demoMode: boolean;
+  onApiKeyChange: (newApiKey: string) => void;
+  onDemoModeToggle: () => void;
+}
 
-  const handleDemoModeChange = () => {
-    setIsDemoMode(!isDemoMode);
-  };
-  
+const Settings: React.FC<SettingsViewProps> = ({ apiKey, demoMode, onApiKeyChange, onDemoModeToggle }) => {
+  console.log(`demoMode: ${demoMode}`);
   return (
     <Container className='m-4 w-auto section-container'>
       <Row>
@@ -31,9 +32,11 @@ const Settings = () => {
             type="password"
             placeholder="API Key"
             aria-label="API Key"
-            disabled={isDemoMode} // Disable when demo mode is on
+            value={apiKey}
+            onChange={(e) => onApiKeyChange(e.target.value)}
+            disabled={demoMode} // Disable when demo mode is on
           />
-          <Button disabled={isDemoMode} variant="primary" type="submit">
+          <Button disabled={demoMode} variant="primary" type="submit">
             Save
           </Button>
         </Form>
@@ -58,8 +61,8 @@ const Settings = () => {
             id="demo-mode-switch"
             className="ms-4"
             style={{ transform: "scale(1.5)" }}
-            checked={isDemoMode}
-            onChange={handleDemoModeChange}
+            checked={demoMode}
+            onChange={onDemoModeToggle}
           />
         </Form>
       </Row>

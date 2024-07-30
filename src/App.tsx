@@ -7,12 +7,22 @@ import './App.scss'; // Ensure this is the correct path to your SCSS file
 import Weather from './components/Weather';
 import Settings from './components/Settings';
 import About from './components/About';
+import { useWeatherViewModel } from './viewModels/WeatherViewModel';
 
 const App = () => {
   const [showOffcanvas, setShowOffcanvas] = useState(false);
 
   const handleOffcanvasToggle = () => setShowOffcanvas(!showOffcanvas);
   const handleOffcanvasClose = () => setShowOffcanvas(false);
+  
+  const {
+    weatherData,
+    locationData,
+    apiKey,
+    demoMode,
+    handleApiKeyChange,
+    handleDemoModeToggle,
+  } = useWeatherViewModel('your-api-key', true);
 
   useEffect(() => {
     const handleResize = () => {
@@ -98,8 +108,11 @@ const App = () => {
           </Offcanvas.Body>
         </Offcanvas>
         <Routes>
-          <Route path="/" element={<Weather />} />
-          <Route path="/settings" element={<Settings />} />
+          <Route path="/" element={<Weather weatherData={weatherData} locationData={locationData}/>} />
+          <Route path="/settings" element={<Settings apiKey={apiKey}
+              demoMode={demoMode}
+              onApiKeyChange={handleApiKeyChange}
+              onDemoModeToggle={handleDemoModeToggle} />} />
           <Route path="/about" element={<About />} />
         </Routes>
       </div>
