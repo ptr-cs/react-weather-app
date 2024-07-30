@@ -1,0 +1,75 @@
+// Import Bootstrap SCSS
+@import "bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+// Define styles for html and body
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $body-color;
+  background-color: $body-bg;
+  width: 100%;
+}
+
+.navbar-brand {
+  font-family: 'Poppins', sans-serif;
+}
+
+.brand-image {
+  height: 32px;
+  width: auto;
+}
+
+.footer {
+  background-color: #f8f9fa;
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 0.9rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.accuweather-button {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  
+  img {
+    height: 23px;
+    width: auto;
+  }
+  
+  span {
+    line-height: 1.5;
+  }
+}
+
+.parent-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+}
+
+.custom-offcanvas {
+  width: 80%; // Adjust this value to leave space on the left side
+  max-width: 300px; // Optional: set a max-width for the offcanvas
+}
+
+/* Custom styles for Offcanvas links */
+.custom-offcanvas .nav-link {
+  color: #000; /* Change this to the desired color */
+  text-decoration: none;
+
+  &:hover {
+    color: #0056b3; /* Change this to the desired hover color */
+    text-decoration: underline;
+  }
+}
