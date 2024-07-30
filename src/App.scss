@@ -28,7 +28,7 @@ html, body {
   padding: 1rem 0;
   text-align: center;
   font-size: 0.9rem;
-  position: absolute;
+  position: sticky;
   bottom: 0;
   width: 100%;
 }
@@ -72,4 +72,8 @@ html, body {
     color: #0056b3; /* Change this to the desired hover color */
     text-decoration: underline;
   }
+}
+
+.weather-icon {
+  min-width: 32px;
 }

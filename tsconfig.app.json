@@ -23,5 +23,10 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"]
+  "include": ["src", 
+    "src/components/About.tsx",
+    "src/components/Weather.tsx",
+    "src/components/Settings.tsx",
+    "src/components/About.tsx",
+  ]
 }
