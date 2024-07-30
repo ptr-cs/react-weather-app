@@ -14,6 +14,19 @@ const App = () => {
 
   const handleOffcanvasToggle = () => setShowOffcanvas(!showOffcanvas);
   const handleOffcanvasClose = () => setShowOffcanvas(false);
+  const [searchInput, setSearchInput] = useState('');
+  
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchInput(event.target.value);
+  };
+
+  const handleSearchSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    console.log(`Search text: ` + searchInput);
+    if (searchInput.trim()) {
+      await getCurrentConditions(searchInput);
+    }
+  };
   
   const {
     weatherData,
@@ -22,6 +35,7 @@ const App = () => {
     demoMode,
     handleApiKeyChange,
     handleDemoModeToggle,
+    getCurrentConditions,
   } = useWeatherViewModel('your-api-key', true);
 
   useEffect(() => {
@@ -65,12 +79,14 @@ const App = () => {
                   <i className="fab fa-github"></i> GitHub {/* Font Awesome GitHub icon */}
                 </Nav.Link>
               </Nav>
-              <Form className="d-flex d-none mx-2 d-lg-flex">
+              <Form className="d-flex d-none mx-2 d-lg-flex" onSubmit={handleSearchSubmit}>
                 <FormControl
                   type="search"
-                  placeholder="Enter a location..."
+                  placeholder="Enter a city..."
                   className="me-2"
                   aria-label="Search"
+                  value={searchInput}
+                  onChange={handleSearchChange}
                 />
               <Button variant="outline-success">Fetch</Button>
             </Form>
@@ -96,12 +112,14 @@ const App = () => {
                 <i className="fab fa-github"></i> GitHub {/* Font Awesome GitHub icon */}
               </Nav.Link>
             </Nav>
-            <Form className="d-flex d-lg-flex my-2">
+            <Form className="d-flex d-lg-flex my-2" onSubmit={handleSearchSubmit}>
               <FormControl
                 type="search"
                 placeholder="Search"
                 className="me-2"
                 aria-label="Search"
+                value={searchInput}
+                onChange={handleSearchChange}
               />
               <Button variant="outline-success">Search</Button>
             </Form>
