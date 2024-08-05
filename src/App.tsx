@@ -7,10 +7,12 @@ import './App.scss'; // Ensure this is the correct path to your SCSS file
 import Weather from './components/Weather';
 import Settings from './components/Settings';
 import About from './components/About';
-import { useWeatherViewModel } from './viewModels/WeatherViewModel';
+import { useAppContext } from './context/AppContext';
 
 const App = () => {
   const [showOffcanvas, setShowOffcanvas] = useState(false);
+  
+  const { state, handleApiKeyChange, handleDemoModeToggle, getLocationInfo, getCurrentConditions } = useAppContext();
 
   const handleOffcanvasToggle = () => setShowOffcanvas(!showOffcanvas);
   const handleOffcanvasClose = () => setShowOffcanvas(false);
@@ -19,24 +21,32 @@ const App = () => {
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchInput(event.target.value);
   };
+  
+  useEffect(() => {
+    // This effect runs whenever locationData changes
+    if (state.locationData) {
+      console.log('Location data has been updated:', state.locationData);
+      getCurrentConditions(state.locationData["Key"]);
+      // Here you can perform further actions based on the new locationData
+    }
+  }, [state.locationData]); // Dependency array includes locationData
 
+  const handleSearchButton = async () => {
+    console.log("handleSearchButton")
+    await doLocationSearch(); 
+  }
+  
   const handleSearchSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    console.log(`Search text: ` + searchInput);
-    if (searchInput.trim()) {
-      await getCurrentConditions(searchInput);
-    }
+    await doLocationSearch();
   };
   
-  const {
-    weatherData,
-    locationData,
-    apiKey,
-    demoMode,
-    handleApiKeyChange,
-    handleDemoModeToggle,
-    getCurrentConditions,
-  } = useWeatherViewModel('your-api-key', true);
+  const doLocationSearch = async () => {
+    console.log(`Search text: ` + searchInput);
+    if (searchInput.trim()) {
+      await getLocationInfo(searchInput);
+    }
+  }
 
   useEffect(() => {
     const handleResize = () => {
@@ -88,7 +98,7 @@ const App = () => {
                   value={searchInput}
                   onChange={handleSearchChange}
                 />
-              <Button variant="outline-success">Fetch</Button>
+              <Button variant="outline-success" onClick={handleSearchButton}>Fetch</Button>
             </Form>
             </Navbar.Collapse>
           </Container>
@@ -121,14 +131,15 @@ const App = () => {
                 value={searchInput}
                 onChange={handleSearchChange}
               />
-              <Button variant="outline-success">Search</Button>
+              <Button variant="outline-success" onClick={handleSearchButton}
+              >Search</Button>
             </Form>
           </Offcanvas.Body>
         </Offcanvas>
         <Routes>
-          <Route path="/" element={<Weather weatherData={weatherData} locationData={locationData}/>} />
-          <Route path="/settings" element={<Settings apiKey={apiKey}
-              demoMode={demoMode}
+          <Route path="/" element={<Weather weatherData={state.weatherData} locationData={state.locationData}/>} />
+          <Route path="/settings" element={<Settings apiKey={state.apiKey}
+              demoMode={state.demoMode}
               onApiKeyChange={handleApiKeyChange}
               onDemoModeToggle={handleDemoModeToggle} />} />
           <Route path="/about" element={<About />} />

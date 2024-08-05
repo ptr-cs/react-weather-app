@@ -28,7 +28,6 @@
     "src/components/Weather.tsx",
     "src/components/Settings.tsx",
     "src/components/About.tsx",
-    "src/models/WeatherModel.ts",
-    "src/viewModels/WeatherViewModel.ts",
+    "src/context/AppContext"
   ]
 }

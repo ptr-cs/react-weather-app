@@ -13,7 +13,7 @@ import PastPrecipitation from './PastPrecipitation';
 import WindChill from './WindChill';
 import LocationInfo from './LocationInfo';
 import './Weather.scss';
-import { WeatherData, LocationData } from '../models/WeatherModel';
+import { WeatherData, LocationData } from '../context/AppContext';
 
 interface WeatherProps {
   weatherData: WeatherData | null;
@@ -24,9 +24,17 @@ const Weather: React.FC<WeatherProps> = ({ weatherData, locationData }) => {
   let pastPrecipitationData = [];
   
   if (!weatherData || !locationData) {
-    return <div className="d-flex justify-content-center align-items-center">Loading...</div>;
+    return <>
+      <div className="section-container d-flex w-75 mt-4 mx-auto flex-wrap flex-column w-50 justify-content-center align-items-center" style={{ gap: '10px' }}>
+        <h1>Welcome to React Weather!</h1>
+        <img src="src/assets/sun-colors.png" alt="Sun Colors" style={{ maxWidth: '256px' }} />
+        <p className='fs-4'>
+          You can proceed using the demo mode to explore the app's features. To view real-time weather data, navigate to the Settings page, switch off demo mode, enter your API key, and search for a city; the weather results will be on the Weather page.
+        </p>
+      </div>
+    </>
+    // return <div className="d-flex justify-content-center align-items-center">Loading...</div>;
   } else {
-    console.log(weatherData)
     pastPrecipitationData = [
       weatherData[0]["PrecipitationSummary"]["PastHour"]["Imperial"]["Value"],
       weatherData[0]["PrecipitationSummary"]["Past3Hours"]["Imperial"]["Value"],
