@@ -24,10 +24,10 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": ["src", 
-    "src/components/About.tsx",
-    "src/components/Weather.tsx",
-    "src/components/Settings.tsx",
-    "src/components/About.tsx",
+    "src/components/About/About.tsx",
+    "src/components/Weather/Weather.tsx",
+    "src/components/Settings/Settings.tsx",
+    "src/components/About/About.tsx",
     "src/context/AppContext"
   ]
 }

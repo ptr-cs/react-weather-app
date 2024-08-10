@@ -4,9 +4,9 @@ import { Navbar, Container, Nav, Offcanvas, Form, FormControl, Button } from 're
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css'; // Import Font Awesome CSS
 import './App.scss'; // Ensure this is the correct path to your SCSS file
-import Weather from './components/Weather';
-import Settings from './components/Settings';
-import About from './components/About';
+import Weather from './components/Weather/Weather';
+import Settings from './components/Settings/Settings';
+import About from './components/About/About';
 import { useAppContext } from './context/AppContext';
 
 const App = () => {
@@ -25,14 +25,14 @@ const App = () => {
   useEffect(() => {
     // This effect runs whenever locationData changes
     if (state.locationData) {
-      console.log('Location data has been updated:', state.locationData);
-      getCurrentConditions(state.locationData["Key"]);
+      if (state.locationData !== null) {
+        getCurrentConditions(state.locationData["Key"]);
+      }
       // Here you can perform further actions based on the new locationData
     }
   }, [state.locationData]); // Dependency array includes locationData
 
   const handleSearchButton = async () => {
-    console.log("handleSearchButton")
     await doLocationSearch(); 
   }
   
@@ -42,7 +42,6 @@ const App = () => {
   };
   
   const doLocationSearch = async () => {
-    console.log(`Search text: ` + searchInput);
     if (searchInput.trim()) {
       await getLocationInfo(searchInput);
     }
@@ -70,23 +69,22 @@ const App = () => {
         <Navbar bg="light" expand="lg" className='shadow'>
           <Container>
             <Navbar.Brand href="#" className='d-flex'>
-              {/* <img src='src/assets/sun-colors.png' className='brand-image px-2'></img> */}
               React Weather
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="offcanvasNavbar" onClick={handleOffcanvasToggle} />
             <Navbar.Collapse id="offcanvasNavbar">
               <Nav className="d-none d-lg-flex">
                 <Nav.Link as={Link} to="/" href="#home" title='Home'>
-                  <i className="fas fa-cloud-sun"></i> Weather {/* Font Awesome weather icon */}
+                  <i className="fas fa-cloud-sun"></i> Weather
                 </Nav.Link>
                 <Nav.Link as={Link} to="/settings" href="#settings" title='Settings'>
-                  <i className="fas fa-cog"></i> Settings {/* Font Awesome settings icon */}
+                  <i className="fas fa-cog"></i> Settings
                 </Nav.Link>
                 <Nav.Link as={Link} to="/about" href="#about" title='About'>
-                  <i className="fas fa-question-circle"></i> About {/* Font Awesome help icon */}
+                  <i className="fas fa-question-circle"></i> About
                 </Nav.Link>
                 <Nav.Link href="https://github.com/ptr-cs/react-weather-app" title='GitHub' target="_blank">
-                  <i className="fab fa-github"></i> GitHub {/* Font Awesome GitHub icon */}
+                  <i className="fab fa-github"></i> GitHub
                 </Nav.Link>
               </Nav>
               <Form className="d-flex d-none mx-2 d-lg-flex" onSubmit={handleSearchSubmit}>
@@ -145,7 +143,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
         </Routes>
       </div>
-      <footer className="footer shadow">
+      <footer className="footer shadow border-top">
         <Container className="d-flex flex-row flex-wrap justify-content-center align-items-center">
           <span>&copy; {new Date().getFullYear()} React Weather. All rights reserved.</span>
           <Nav.Link href="https://www.accuweather.com" target="_blank" className="accuweather-button px-1">

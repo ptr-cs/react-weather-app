@@ -1,5 +1,5 @@
 import { Container } from 'react-bootstrap';
-import './Transition.scss';
+import '../Transition.scss';
 
 const About = () => {
   return (

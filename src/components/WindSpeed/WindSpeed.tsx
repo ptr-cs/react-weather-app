@@ -1,22 +1,22 @@
-import { FaCloudSun } from 'react-icons/fa';
 import { Container, Row, Col } from 'react-bootstrap';
+import { WiWindy } from 'react-icons/wi';
 
-const CurrentConditions = ({ description }: { description: string }) => {
+const WindSpeed = ({ value, unit }: { value: number, unit: string }) => {
   return (
-<Container className="h-100 d-flex flex-column">
+    <Container className='h-100 d-flex flex-column'>
       <Row className="flex-grow-1 d-flex align-items-center justify-content-center">
         <Col className="d-flex align-items-center justify-content-center p-4 fs-2">
-          {/* <FaCloudSun size={48} className="me-2" /> */}
-          <span>{description}</span>
+          <WiWindy size={48} className="weather-icon me-2" data-testid="wind-icon" />
+          <span>{value}</span>
         </Col>
       </Row>
       <Row className="auto-height">
         <Col className="d-flex justify-content-start align-items-end">
-          <span>Current Conditions</span>
+          <span>Wind Speed ({unit})</span>
         </Col>
       </Row>
     </Container>
   );
 };
 
-export default CurrentConditions;
+export default WindSpeed;

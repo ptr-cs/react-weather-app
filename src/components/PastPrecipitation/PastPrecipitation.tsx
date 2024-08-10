@@ -90,7 +90,7 @@ const PastPrecipitation = ({ data }: { data: number[] }) => {
       <Row className="flex-grow-1 d-flex align-items-center justify-content-center">
         <Col xs={12}>
           <div>
-            <canvas ref={chartRef} />
+            <canvas ref={chartRef} data-testid="precipitation-canvas"/>
             </div>
           </Col>
       </Row>

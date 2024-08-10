@@ -1,19 +1,19 @@
 import { Container, Row, Col } from 'react-bootstrap';
-import CurrentConditions from './CurrentConditions';
-import WindSpeed from './WindSpeed';
-import DewPoint from './DewPoint';
-import CloudCover from './CloudCover';
-import Visibility from './Visibility';
-import Pressure from './Pressure';
-import Temperature from './Temperature';
-import UVIndex from './UVIndex';
-import RelativeHumidity from './RelativeHumidity';
-import WindDirection from './WindDirection';
-import PastPrecipitation from './PastPrecipitation';
-import WindChill from './WindChill';
-import LocationInfo from './LocationInfo';
+import CurrentConditions from '../CurrentConditions/CurrentConditions';
+import WindSpeed from '../WindSpeed/WindSpeed';
+import DewPoint from '../DewPoint/DewPoint';
+import CloudCover from '../CloudCover/CloudCover';
+import Visibility from '../Visibility/Visibility';
+import Pressure from '../Pressure/Pressure';
+import Temperature from '../Temperature/Temperature';
+import UVIndex from '../UVIndex/UVIndex';
+import RelativeHumidity from '../RelativeHumidity/RelativeHumidity';
+import WindDirection from '../WindDirection/WindDirection';
+import PastPrecipitation from '../PastPrecipitation/PastPrecipitation';
+import WindChill from '../WindChill/WindChill';
+import LocationInfo from '../LocationInfo/LocationInfo';
 import './Weather.scss';
-import { WeatherData, LocationData } from '../context/AppContext';
+import { WeatherData, LocationData } from '../../context/AppContext';
 
 interface WeatherProps {
   weatherData: WeatherData | null;
@@ -53,7 +53,7 @@ const Weather: React.FC<WeatherProps> = ({ weatherData, locationData }) => {
       <Container className='m-4 w-auto'>
       <Row>
         <Col sm={12} id='locationInfo' className='shadow'>
-          <LocationInfo city={locationData["LocalizedName"]} state={locationData["AdministrativeArea"]["ID"]} date={weatherData[0]["LocalObservationDateTime"]} timestamp="" />
+          <LocationInfo city={locationData["LocalizedName"]} state={locationData["AdministrativeArea"]["ID"]} date={weatherData[0]["LocalObservationDateTime"]} />
         </Col>
       </Row>
       <Row>
