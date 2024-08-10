@@ -39,7 +39,7 @@ To get started with the project, follow these steps:
 To run the application locally, use the following command:
 
 
-    npm start
+    npm run dev
 
     
 ## Testing
