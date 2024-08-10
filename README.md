@@ -38,17 +38,17 @@ To get started with the project, follow these steps:
 
 To run the application locally, use the following command:
 
-    ```
+
     npm start
-    ```
+
     
 ## Testing
 
 To run the tests for the application, use the following command:
 
-    ```
+
     npm test
-    ```
+
 
 This will execute all the unit tests using Jest and display the results in the terminal.
 
