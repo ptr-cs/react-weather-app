@@ -23,14 +23,14 @@ To get started with the project, follow these steps:
 
 1. **Clone the repository:**
 
-    ```sh
+    ```
     git clone https://github.com/ptr-cs/react-weather-app.git
     cd weather-app
     ```
 
 2. **Install dependencies:**
 
-    ```sh
+    ```
     npm install
     ```
 
@@ -38,7 +38,7 @@ To get started with the project, follow these steps:
 
 To run the application locally, use the following command:
 
-    ```sh
+    ```
     npm start
     ```
     
@@ -46,7 +46,7 @@ To run the application locally, use the following command:
 
 To run the tests for the application, use the following command:
 
-    ```sh
+    ```
     npm test
     ```
 
