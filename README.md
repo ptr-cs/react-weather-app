@@ -1,7 +1,57 @@
-# React Weather App
+# Weather App
 
-![image](https://github.com/user-attachments/assets/04b07373-acc3-4956-a99b-927c70a2ce97)
+A React-based weather application that displays past precipitation data and other weather-related information.
 
-npm install
+## Table of Contents
 
-npm run dev
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Testing](#testing)
+- [License](#license)
+
+## Features
+
+- Display past precipitation data.
+- Interactive charts and graphs.
+- Responsive design for mobile and desktop.
+- Easy to use and navigate.
+
+## Installation
+
+To get started with the project, follow these steps:
+
+1. **Clone the repository:**
+
+    ```sh
+    git clone https://github.com/ptr-cs/react-weather-app.git
+    cd weather-app
+    ```
+
+2. **Install dependencies:**
+
+    ```sh
+    npm install
+    ```
+
+## Usage
+
+To run the application locally, use the following command:
+
+    ```sh
+    npm start
+    ```
+    
+## Testing
+
+To run the tests for the application, use the following command:
+
+    ```sh
+    npm test
+    ```
+
+This will execute all the unit tests using Jest and display the results in the terminal.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for more details.
