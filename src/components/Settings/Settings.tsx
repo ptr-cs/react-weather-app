@@ -61,9 +61,6 @@ const Settings: React.FC<SettingsViewProps> = ({ apiKey, demoMode, onApiKeyChang
             onChange={(e) => onApiKeyChange(e.target.value)}
             disabled={demoMode} // Disable when demo mode is on
           />
-          <Button disabled={demoMode} variant="primary" type="submit">
-            Save
-          </Button>
           </div>
         </Form>
       </Row>
