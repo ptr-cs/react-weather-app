@@ -1,6 +1,9 @@
-# Weather App
+# React Weather App
+![react-weather-demo](https://github.com/user-attachments/assets/860a0ba0-2af4-4f2d-af99-85a2518c47fa)
+![react-weather-demo-responsive](https://github.com/user-attachments/assets/381a989b-6167-44f9-9f53-114f57744a39)
 
-A React-based weather application that displays past precipitation data and other weather-related information.
+A React-based, responsive, Single Page Application (SPA) that utilizes the AccuWeather API to display current conditions data for a specified city. 
+The application had demo data built-in so that the app can be tested without an API key; to use the search feature for real weather data, you can supply an AccuWeather API key on the Settings page; to learn more about the AccuWeather API, visit https://developer.accuweather.com/
 
 ## Table of Contents
 
@@ -12,10 +15,10 @@ A React-based weather application that displays past precipitation data and othe
 
 ## Features
 
-- Display past precipitation data.
+- Display past precipitation data and other data within individual React components.
 - Interactive charts and graphs.
 - Responsive design for mobile and desktop.
-- Easy to use and navigate.
+- Easy to use and navigate; Bootstrap is used for the User Interface (UI).
 
 ## Installation
 
@@ -23,14 +26,14 @@ To get started with the project, follow these steps:
 
 1. **Clone the repository:**
 
-    ```sh
+    ```
     git clone https://github.com/ptr-cs/react-weather-app.git
     cd weather-app
     ```
 
 2. **Install dependencies:**
 
-    ```sh
+    ```
     npm install
     ```
 
@@ -38,17 +41,17 @@ To get started with the project, follow these steps:
 
 To run the application locally, use the following command:
 
-    ```sh
-    npm start
-    ```
+
+    npm run dev
+
     
 ## Testing
 
 To run the tests for the application, use the following command:
 
-    ```sh
+
     npm test
-    ```
+
 
 This will execute all the unit tests using Jest and display the results in the terminal.
 
