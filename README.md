@@ -11,6 +11,7 @@ The application had demo data built-in so that the app can be tested without an 
 - [Installation](#installation)
 - [Usage](#usage)
 - [Testing](#testing)
+- [Accessibility](#accessibility)
 - [License](#license)
 
 ## Features
@@ -54,6 +55,14 @@ To run the tests for the application, use the following command:
 
 
 This will execute all the unit tests using Jest and display the results in the terminal.
+
+## Accessibility
+
+This software has been tested against the Department of Homeland Security's (DHS) Trusted Tester process; the results of this process have been compiled using the DHS Accessibility Conformance Reporting Tool (ACRT) and uploaded in the "Section508" folder.
+
+For more information on the Trusted Tester process and ACRT, visit the following links:
+- https://github.com/Section508Coordinators/TrustedTester5.1
+- https://github.com/Section508Coordinators/ACRT
 
 ## License
 
