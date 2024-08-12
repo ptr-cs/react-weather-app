@@ -12,9 +12,10 @@ interface SettingsViewProps {
 const Settings: React.FC<SettingsViewProps> = ({ apiKey, demoMode, onApiKeyChange, onDemoModeToggle }) => {
   return (
     <Container className='m-4 w-auto section-container'>
+      <h1 className='mb-4'>Settings</h1>
       <Row>
         <Form className="d-flex align-items-center" style={{ maxWidth: "500px" }}>
-          <label className="me-2">Demo mode: </label>
+          <label htmlFor="demo-mode-switch" className="me-2">Demo mode: </label>
           <OverlayTrigger
             placement="bottom"
             overlay={
@@ -29,6 +30,7 @@ const Settings: React.FC<SettingsViewProps> = ({ apiKey, demoMode, onApiKeyChang
           </OverlayTrigger>
           <Form.Check
             type="switch"
+            aria-label="Demo Mode toggle switch"
             id="demo-mode-switch"
             className="ms-4"
             style={{ transform: "scale(1.5)" }}
@@ -39,7 +41,7 @@ const Settings: React.FC<SettingsViewProps> = ({ apiKey, demoMode, onApiKeyChang
       </Row>
       <Row className="mt-3">
         <Form className="d-flex flex-wrap flex-row align-items-center" style={{ maxWidth: "500px", gap: "10px" }}>
-          <label className="me-2">AccuWeather API Key: </label>
+          <label htmlFor="api-key-input" className="me-2">AccuWeather API Key: </label>
           <OverlayTrigger
             placement="bottom"
             overlay={
@@ -57,6 +59,7 @@ const Settings: React.FC<SettingsViewProps> = ({ apiKey, demoMode, onApiKeyChang
             type="password"
             placeholder="API Key"
             aria-label="API Key"
+            id="api-key-input"
             value={apiKey}
             onChange={(e) => onApiKeyChange(e.target.value)}
             disabled={demoMode} // Disable when demo mode is on
