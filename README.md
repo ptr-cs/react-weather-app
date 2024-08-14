@@ -1,4 +1,5 @@
 # React Weather App
+![image](https://github.com/user-attachments/assets/ee59a1c0-24a9-442d-89b1-e1e632e8ceb5)
 ![react-weather-demo](https://github.com/user-attachments/assets/860a0ba0-2af4-4f2d-af99-85a2518c47fa)
 ![react-weather-demo-responsive](https://github.com/user-attachments/assets/381a989b-6167-44f9-9f53-114f57744a39)
 
