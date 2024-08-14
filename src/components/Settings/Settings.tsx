@@ -1,4 +1,4 @@
-import { Container, Row, Form, FormControl, OverlayTrigger, Tooltip, Button } from 'react-bootstrap';
+import { Container, Row, Form, FormControl, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { FaInfoCircle } from 'react-icons/fa';
 import '../Transition.scss';
 
