@@ -33,6 +33,13 @@ const App = () => {
     }
   }, [state.locationData]); // Dependency array includes locationData
 
+  const handleSearchEnterKey = (e: any) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();  // Prevent form submission on Enter
+      handleSearchButton();
+    }
+  };
+    
   const handleSearchButton = async () => {
     await doLocationSearch(); 
   }
@@ -97,6 +104,7 @@ const App = () => {
                   aria-label="Enter a city to get weather data for"
                   value={searchInput}
                   onChange={handleSearchChange}
+                  onKeyDown={handleSearchEnterKey}
                 />
               <Button variant="primary" onClick={handleSearchButton} className='get-weather-button'>Get Weather</Button>
             </Form>
