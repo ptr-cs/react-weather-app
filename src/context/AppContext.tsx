@@ -533,7 +533,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             return false;
         }
         // get location data 
-        const locationUrl = `http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${state.apiKey}&q=${locationQuery}`;
+        const locationUrl = `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${state.apiKey}&q=${locationQuery}`;
 
         try {
             const response = await fetch(locationUrl);
@@ -565,7 +565,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             return false;
         }
 
-        const apiUrl = `http://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=${state.apiKey}&details=true`;
+        const apiUrl = `https://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=${state.apiKey}&details=true`;
 
         try {
             const response = await fetch(apiUrl);
