@@ -6,6 +6,8 @@
 A React-based, responsive, Single Page Application (SPA) that utilizes the AccuWeather API to display current conditions data for a specified city. 
 The application had demo data built-in so that the app can be tested without an API key; to use the search feature for real weather data, you can supply an AccuWeather API key on the Settings page; to learn more about the AccuWeather API, visit https://developer.accuweather.com/
 
+live demo here: https://icy-plant-04bbb950f.5.azurestaticapps.net/
+
 ## Table of Contents
 
 - [Features](#features)
