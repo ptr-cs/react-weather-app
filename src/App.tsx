@@ -154,7 +154,7 @@ const App = () => {
           <Link className='mx-2 text-body' to="/sitemap">Site Map.</Link>
           <Nav.Link href="https://www.accuweather.com" target="_blank" className="accuweather-button px-1">
             <span>Weather API provided by:</span>
-            <img src="accuweather.png" alt="AccuWeather" className='p-1' />
+            <img src="/AccuWeather.png" alt="AccuWeather" className='p-1' />
           </Nav.Link>
         </Container>
       </footer>
